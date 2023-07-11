@@ -1,4 +1,5 @@
 import Friend from "./Friend";
+import AddFriend from "./AddFriend";
 
 function FriendsList({ friends }) {
   return (
@@ -13,6 +14,8 @@ function FriendsList({ friends }) {
           />
         ))}
       </ul>
+
+      <AddFriend />
     </div>
   );
 }

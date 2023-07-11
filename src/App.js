@@ -1,5 +1,6 @@
-import FriendsList from "./components/FriendsList";
 import { useState } from "react";
+import BillSpliter from "./components/BillSpliter";
+import FriendsList from "./components/FriendsList";
 
 const initialFriends = [
   {
@@ -26,8 +27,9 @@ function App() {
   const [friends, SetFriends] = useState([...initialFriends]);
 
   return (
-    <div className="App">
+    <div className="app">
       <FriendsList friends={friends} />
+      <BillSpliter />
     </div>
   );
 }
