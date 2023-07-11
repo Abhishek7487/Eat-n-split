@@ -1,3 +1,6 @@
+import FriendsList from "./components/FriendsList";
+import { useState } from "react";
+
 const initialFriends = [
   {
     id: 118836,
@@ -20,9 +23,11 @@ const initialFriends = [
 ];
 
 function App() {
+  const [friends, SetFriends] = useState([...initialFriends]);
+
   return (
     <div className="App">
-      <h1>Eat N Sleep</h1>
+      <FriendsList friends={friends} />
     </div>
   );
 }
