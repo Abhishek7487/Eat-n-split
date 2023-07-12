@@ -2,34 +2,38 @@ import Friend from "./Friend";
 import AddFriend from "./AddFriend";
 import { useState } from "react";
 
-function FriendsList({ friends }) {
-  const [addFriend, setAddFriend] = useState(false);
+function FriendsList({ friends, setFriends }) {
+  const [addFriendForm, setAddFriendForm] = useState(false);
   return (
     <div className="sidebar">
       <ul>
         {friends.map((friend) => (
           <Friend
+            key={friend.id}
             name={friend.name}
             image={friend.image}
             balance={friend.balance}
-            key={friend.id}
           />
         ))}
       </ul>
-      {!addFriend && (
+      {!addFriendForm && (
         <button
           style={{ alignSelf: "end" }}
           className="button"
-          onClick={() => setAddFriend(true)}
+          onClick={() => setAddFriendForm(true)}
         >
           Add Friend
         </button>
       )}
-      {addFriend && (
+      {addFriendForm && (
         <>
-          <AddFriend />
+          <AddFriend
+            friends={friends}
+            setFriends={setFriends}
+            setAddFriendForm={setAddFriendForm}
+          />
 
-          <button className="button" onClick={() => setAddFriend(false)}>
+          <button className="button" onClick={() => setAddFriendForm(false)}>
             Close
           </button>
         </>

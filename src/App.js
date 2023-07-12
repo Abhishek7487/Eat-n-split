@@ -24,11 +24,11 @@ const initialFriends = [
 ];
 
 function App() {
-  const [friends, SetFriends] = useState([...initialFriends]);
+  const [friends, setFriends] = useState([...initialFriends]);
 
   return (
     <div className="app">
-      <FriendsList friends={friends} />
+      <FriendsList friends={friends} setFriends={setFriends} />
       <BillSpliter />
     </div>
   );
