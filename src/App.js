@@ -25,11 +25,24 @@ const initialFriends = [
 
 function App() {
   const [friends, setFriends] = useState([...initialFriends]);
+  const [selectedFriend, setSelectedFriend] = useState(null);
 
   return (
     <div className="app">
-      <FriendsList friends={friends} setFriends={setFriends} />
-      <BillSpliter />
+      <FriendsList
+        friends={friends}
+        setFriends={setFriends}
+        selectedFriend={selectedFriend}
+        setSelectedFriend={setSelectedFriend}
+      />
+      {selectedFriend && (
+        <BillSpliter
+          selectedFriend={selectedFriend}
+          setSelectedFriend={setSelectedFriend}
+          friends={friends}
+          setFriends={setFriends}
+        />
+      )}
     </div>
   );
 }

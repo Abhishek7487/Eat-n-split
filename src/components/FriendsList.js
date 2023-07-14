@@ -2,17 +2,22 @@ import Friend from "./Friend";
 import AddFriend from "./AddFriend";
 import { useState } from "react";
 
-function FriendsList({ friends, setFriends }) {
+function FriendsList({
+  friends,
+  setFriends,
+  selectedFriend,
+  setSelectedFriend,
+}) {
   const [addFriendForm, setAddFriendForm] = useState(false);
   return (
     <div className="sidebar">
       <ul>
         {friends.map((friend) => (
           <Friend
+            friend={friend}
             key={friend.id}
-            name={friend.name}
-            image={friend.image}
-            balance={friend.balance}
+            selectedFriend={selectedFriend}
+            setSelectedFriend={setSelectedFriend}
           />
         ))}
       </ul>
